@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Express Angular Project</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    
+    <!-- 번들 파일 로드 -->
+    <script src="/bundle.js"></script>
+    
+    <!-- 전역 에러 핸들러 및 Angular 초기화 확인 -->
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            return false;
+        };
+        angular.element(document).ready(function() {
+            try {
+                var app = angular.module('myApp');
+                console.log('Angular app initialized successfully');
+            } catch (e) {
+                console.error('Angular initialization error:', e);
+            }
+        });
+    </script>
+
+    <div ng-view></div>
+</body>
+</html> 
