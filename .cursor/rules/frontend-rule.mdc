@@ -1,0 +1,131 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+**Objective:** 
+You are a front-end developer.
+When generating source code, please ensure it accurately reflects the request and aligns as closely as possible with the current project's context and environment. Initially, the project may have targeted **AngularJS (v1.6.6)** and **Node.js 5.8.0**. However, due to environmental constraints, the required versions have been updated. Please adhere to the following specific versions:
+- Frontend Framework: AngularJS v1.8.3
+- Backend/Tooling Runtime: Node.js v18.0.0
+- Package Manager: npm v9.0.0
+
+**Directory:**
+Directory is made by below rules in the folder.
+```
+NEWOC/                    
+├── build/                  # Folder for storing built resources    
+├── node_modules/           # Folder for storing packaged dependency libraries   
+├── src/                    # Folder for storing all development resources                   
+│   ├── app/                # Folder for storing app-related *.js, *.tpl.html files            
+│   │   ├── common/         # Folder for global resources and common Services            
+│   │   ├── components/     # Folder for reusable Directives            
+│   │   └── views/          # Folder for view-related resources (Templates, Controllers, etc.)            
+│   └── assets/             # Folder for storing static assets            
+│       ├── images/         # Folder for storing image files            
+│       ├── css/            # Folder for storing css files            
+│       ├── fonts/          # Folder for storing font files            
+│       ├── js/             # Folder for storing UI-related js files            
+│       └── sass/           # Folder for storing sass files        
+├── Gruntfile.js                        
+└── package.json                                     
+```
+
+**File Naming Conventions**
+1. Service Files (JS): Service file names should follow the pattern: serviceName_service.js
+2. Controller Files (JS): Controller JS file names should follow the pattern: serviceName_controller.js
+3. Template Files (HTML): Template HTML file names should follow the pattern: serviceName_purpose.tpl.html
+4. Popup Files (HTML): Popup HTML file names should follow the pattern: serviceName_pop_purpose.html
+5. Layout Template Files (HTML): Layout Template HTML file names should follow the pattern: layoutReservedWord.tpl.html
+__(Note: serviceName, purpose, state, layoutReservedWord are placeholders for the actual names)__
+
+**Layout Reserved IDs**
+Only predefined reserved IDs can be used for the main layout elements.
+These reserved IDs cannot be combined with other characters; they must be used exactly as defined below.
+The '#' symbol indicates an element ID.
+Reserved IDs:
+1. #wrap: Reserved ID for the main page wrapper/overall area.
+2. #header: Reserved ID for the header area.
+3. #container: Reserved ID for the main content area.
+4. #footer: Reserved ID for the footer area.
+
+
+**Code Style and rules**
+
+**"Service" Code Structure Example and Rules**
+```javascript
+// Import the main application module
+// Register the service with Angular.
+// The service name MUST be camelCase version of the filename
+// (e.g., 'utilService' if the filename is 'util_service.js').
+// The second argument MUST be the constructor function named '__service'.
+angular.module('app_module').service('exampleService', __service);
+
+// Service constructor function.
+// It MUST be named exactly '__service'.
+// Dependencies (other services like $http, $q, etc.) should be injected as parameters here.
+function __service(/* Injected Dependencies */){
+
+    // Define service methods using 'this.methodName = function(...)'.
+	this.methodName1 = function(parameters){
+		var result = parameters; // Example logic
+		return result;
+	}; // Remember the semicolon here
+
+	this.methodName2 = function(parameters){
+		var result2 = parameters; // Example logic
+		return result2;
+	}; // Remember the semicolon here
+
+    // Add other service methods following the same pattern.
+}
+```
+
+**"Controller" Code Structure Example and Rules**
+```javascript
+// Import the main application module (adjust path '../../app_module' if necessary based on file location)
+// Register the service with Angular.
+// The controller name MUST be camelCase version of the filename
+// (e.g., 'exampleController' if the filename is 'example_controller.js').
+// The controller is matched with document which type is HTML document.
+// (e.g., 'exampleController' if the file is matched with 'example.tpl.html).
+// The second argument MUST be the constructor function named '__controller'.
+'use strict';
+angular.module('myApp').controller('exampleController', __controller);
+
+// Controller constructor function.
+// It MUST be named exactly '__controller'.
+// Dependencies (other services like $scope, $state, etc.) should be injected as parameters here.
+function _controller(/* Injected Dependencies */){
+    
+	// data definition area
+    $scope.data = data;
+
+    // view definition area
+    $scope.view = {
+        btnNm : '',
+        viewName : ''
+    }
+
+    // validations definition area
+    $scope.valid = {
+        isValid : false,
+        ex : false
+    }
+    // events injection
+    $scope.event = {
+        init : init(),
+        exampleFunction : exampleFunction
+    }
+
+    function init(){
+        // Initiation function
+    }
+
+    function exampleFunction(e){
+        // Event function
+    }
+}
+
+
+```
