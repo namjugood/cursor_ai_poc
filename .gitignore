@@ -30,6 +30,7 @@ migrate_working_dir/
 # Node.js related
 node_modules/
 build/
+npm-debug.log*
 
 # Web related
 lib/generated_plugin_registrant.dart
