@@ -2,7 +2,7 @@
 
 angular.module('myApp').controller('applycnsltController', __controller);
 
-function __controller($scope /*$utilService, $stateParams, $provMangService, $clbcCunsService, $eaiCmnService*/) {
+function __controller($scope, $utilService, $stateParams, $provMangService, $clbcCunsService, $eaiCmnService) {
     //## Data Area Start ##//
     $scope.data = {
         cunlInfo: !$utilService.isEmpty($stateParams.data.micro) ? $stateParams.data.micro.cunlInfo : !$utilService.isEmpty($stateParams.data.cunlInfo) ? $stateParams.data.cunlInfo : null // 상담사 정보 맵핑

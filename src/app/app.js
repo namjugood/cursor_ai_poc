@@ -1,23 +1,21 @@
 'use strict';
 
 angular.module('myApp', [
-    'ngRoute',
-    'ngResource'
+    'ngResource',
+    'ui.router'
 ])
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('');
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
 
-    $routeProvider
-        .when('/', {
+    $stateProvider
+        .state('home', {
+            url: '/',
             templateUrl: 'app/views/home_main.tpl.html',
             controller: 'homeMainController'
         })
-        .when('/applycnslt', {
+        .state('applycnslt', {
+            url: '/applycnslt',
             templateUrl: 'app/views/applycnslt/applycnslt.tpl.html',
             controller: 'applycnsltController'
-        })
-        .otherwise({
-            redirectTo: '/'
         });
 }]); 

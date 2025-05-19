@@ -5,6 +5,7 @@ const baseDir = path.join(__dirname, 'src/app');
 const types = [
   { dir: 'views', suffix: '_controller.js' },
   { dir: 'services', suffix: '_service.js' },
+  { dir: 'common', suffix: '_service.js' },
   { dir: 'directives', suffix: '_directive.js' },
   { dir: 'filters', suffix: '_filter.js' }
 ];
