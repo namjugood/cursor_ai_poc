@@ -2,7 +2,7 @@
 
 angular.module('myApp').service('$utilService', __service);
 
-function __service() {
+function __service($http, $uibModal, $rootScope) {
     var service = this;
 
     service.isEmpty = isEmpty;
@@ -45,7 +45,29 @@ function __service() {
 
     function openModal(template, scope, e, modalId) {
         // 모달 열기 로직 구현
-        console.log('openModal called', template, modalId);
+        if (!template) {
+            console.error('템플릿이 지정되지 않았습니다.');
+            return;
+        }
+
+        var modalOptions = {
+            templateUrl: template,
+            scope: scope,
+            animation: true,
+            backdrop: 'static',
+            keyboard: false
+        };
+
+        if (modalId) {
+            modalOptions.id = modalId;
+        }
+
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
+
+        console.log('openModal called', modalOptions.scope);
+        return $uibModal.open(modalOptions);
     }
 
     function closeModal(modalId) {

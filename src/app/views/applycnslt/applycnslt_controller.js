@@ -2,11 +2,13 @@
 
 angular.module('myApp').controller('applycnsltController', __controller);
 
-function __controller($scope, $utilService, $stateParams, $provMangService, $clbcCunsService, $eaiCmnService) {
+function __controller($scope, $utilService, $stateParams, $http /*$provMangService, $clbcCunsService, $eaiCmnService*/) {
     //## Data Area Start ##//
     $scope.data = {
+        /*
         cunlInfo: !$utilService.isEmpty($stateParams.data.micro) ? $stateParams.data.micro.cunlInfo : !$utilService.isEmpty($stateParams.data.cunlInfo) ? $stateParams.data.cunlInfo : null // 상담사 정보 맵핑
-        , custNm: null // 고객 이름
+        , */
+        custNm: null // 고객 이름
         , custPhone1: null // 고객 휴대폰번호1
         , custPhone2: null // 고객 휴대폰번호2
         , custPhone3: null // 고객 휴대폰번호3
@@ -14,7 +16,7 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
         , allProv: false // 약관동의 전체
         , prov1: false // 약관1
         , provDtl: {} // 약관 상세
-        , ckMainTorqus: !$utilService.isEmpty($stateParams.data.ckMainTorqus) ? $stateParams.data.ckMainTorqus : '' // 상단 메뉴 변경 값
+        /*, ckMainTorqus: !$utilService.isEmpty($stateParams.data.ckMainTorqus) ? $stateParams.data.ckMainTorqus : ''*/ // 상단 메뉴 변경 값
     };
     //## Data Area End ##//
 
@@ -103,9 +105,15 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
             provDvcd: "90005"
         };
 
-        $provMangService.selectProvOne(SMaProv01InSubDto).then(function (res) {
-            cbGetSelectProvOneSuccess(res.SMaProv01OutSubDto, e);
-        }, cbGetSelectProvOneError);
+        // $provMangService.selectProvOne(SMaProv01InSubDto).then(function (res) {
+        //     cbGetSelectProvOneSuccess(res.SMaProv01OutSubDto, e);
+        // }, cbGetSelectProvOneError);
+
+        // 임시코드(약관불러오기)
+        $http.get('assets/test/test_data.json').then(function (res) {
+            // cbGetSelectProvOneSuccess(res.data, e);
+            cbGetSelectProvOneSuccess(res.data.SMaProv01OutSubDto, e);
+        });
     };
 
     //## 약관 조회 성공 ##//
@@ -113,6 +121,9 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
         var data = $scope.data;
 
         data.provDtl = SMaProv01OutSubDto;
+
+        // 약관 상세 팝업 열기
+        $utilService.openModal('app/components/popup/micro/p_micro_prov.tpl.html', $scope, e, 'popup');
 
         //$utilService.openModal('app/components/popup/micro/p_micro_prov.tpl.html', $scope, e, 'popup');
     }
@@ -144,6 +155,7 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
         var data = $scope.data;
         var device = evtCheckDevice();
 
+        /*
         if (device == "mobile") {
             ga('send', 'event', 'M_상담신청', 'CLICK', 'MOBILE');
         }
@@ -157,6 +169,7 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
             $clbcCunsService.processEsnsCuns(SEsnsCunsInDto).then(cbGetProcessEsnsCunsSuccess, cbGetProcessEsnsCunsError);
         } else {
 
+            
             if (!$utilService.isEmpty(data.cunlInfo.aniFundDt)) {
                 var SEsnsCunsInDto = {
                     custNam: data.custNm,
@@ -172,19 +185,23 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
                 };
                 $eaiCmnService.processHmpgCuwSmsSndn(SHmpgCuwSmsSndnInDto).then(cbGetProcessHmpgCuwSmsSndnSuccess, cbGetProcessHmpgCuwSmsSndnError);
             }
+            
         }
+        */
     }
 
     //## LP상담 신청 성공 ##//
     function cbGetProcessHmpgCuwSmsSndnSuccess(res) {
         var data = $scope.data;
 
+        /*
         $utilService.simpleAlert($scope, {
             msgHtml: '대출상담 신청이 완료되었습니다. 메인 화면으로 이동합니다.',
             clickedBt1: function clickedBt1() {
                 $utilService.go('micro_main', { id: data.cunlInfo.loanInsiMnno });
             }
         });
+        */
     }
 
     //## LP상담 신청 네트워크 에러 ##//
@@ -197,12 +214,14 @@ function __controller($scope, $utilService, $stateParams, $provMangService, $clb
     function cbGetProcessEsnsCunsSuccess(res) {
         var data = $scope.data;
 
+        /*
         $utilService.simpleAlert($scope, {
             msgHtml: '대출상담 신청이 완료되었습니다. 메인 화면으로 이동합니다.',
             clickedBt1: function clickedBt1() {
                 if ($utilService.isEmpty(data.cunlInfo)) $utilService.go('ok_main');else $utilService.go('micro_af_main');
             }
         });
+        */
     }
 
     //## 초간편상담 신청 네트워크 에러 ##//

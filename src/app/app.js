@@ -2,7 +2,8 @@
 
 angular.module('myApp', [
     'ngResource',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

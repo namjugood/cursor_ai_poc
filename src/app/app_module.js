@@ -5,10 +5,12 @@ const angular = require('angular');
 window.angular = angular; // 전역에 angular 노출
 require('angular-resource');
 require('@uirouter/angularjs');
+require('angular-ui-bootstrap');
 
 const app = angular.module('myApp', [
     'ngResource',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ]);
 
 // auto_require.js에서 모든 구성요소를 require

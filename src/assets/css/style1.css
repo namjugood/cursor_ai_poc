@@ -3377,7 +3377,10 @@ button {
   padding: 1.875rem; }
 
 .box---space {
-  padding: 0 1.875rem; }
+  padding: 0 1.875rem; 
+  overflow-y: auto;   /* 세로 스크롤 자동 */
+  padding-right: 1rem; /* 스크롤바로 인한 내용 가림 방지(선택) */
+}
 
 .box---gray {
   background: none;
