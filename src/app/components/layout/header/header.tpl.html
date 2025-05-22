@@ -1,0 +1,23 @@
+<div>
+    <!-- 헤더 -->
+    <ion-header-bar style="z-index: 10;" ng-show="type=='01'">
+        <div class="home">{{megaTitle}}</div>
+        <div class="prefix">
+            <button type="button" ng-click="goBack(); event.stopPropagation();">
+                <span class="icon---arrow-back">뒤로가기</span>
+            </button>
+        </div>
+        <span class="header--title">{{title}}</span>
+        <div class="suffix"></div>
+    </ion-header-bar>
+    <!-- 모달 헤더 -->
+    <ion-header-bar style="z-index: 10;" ng-show="type=='02'" class="bar bar-header {{isModal ? 'popup' : 'null'}}">
+        <div class="prefix"></div>
+        <span class="header--title">{{title}}</span>
+        <div class="suffix">
+            <button type="button" ng-click="event.closeModal()">
+                <span class="icon---close-pop">닫기</span>
+            </button>
+        </div>
+    </ion-header-bar>
+</div>

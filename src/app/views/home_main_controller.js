@@ -7,13 +7,8 @@ function __controller($scope, $location) {
     // data definition area
     $scope.data = {
         title: '오케이 캐피탈 프로젝트',
-        message: 'Cursor AI를 이용한 웹 프로젝트'
-    };
-
-    // view definition area
-    $scope.view = {
-        btnNm: '상담신청',
-        viewName: 'home'
+        message: 'Cursor AI를 이용한 웹 프로젝트',
+        btnNm: '상담신청'
     };
 
     // validations definition area
@@ -31,6 +26,8 @@ function __controller($scope, $location) {
         // Initiation function
         console.log('Home controller initialized');
     }
+
+    init();
 
     function goApplyCnslt() {
         // Go to applycnslt page

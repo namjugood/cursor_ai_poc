@@ -1,0 +1,4 @@
+<ion-footer style="z-index:10;" class="fixation fixation---bottom" ng-if="type!='0002'&&type!='0003'&&type!= '0004'" ng-show="view.isShowing">
+    <button type="button" class="btn btn---fullscreen {{ inputComplete ? 'bgc---redorange' : ''}}" ng-disabled="inputComplete ? false:true" ng-click="firstButton()" ng-bind-html="title | textToHtml" ng-if="view.isFirstAdbrix == false"></button>
+    <button type="button" class="btn btn---fullscreen {{ inputComplete ? 'bgc---redorange' : ''}}" ng-disabled="inputComplete ? false:true" ng-click="firstButton()" ng-bind-html="title | textToHtml" ng-if="view.isFirstAdbrix == true" data-adbrix="{{firstAdbrix}}"></button>
+</ion-footer>

@@ -15,7 +15,13 @@ module.exports = function(grunt) {
             cwd: 'src/',
             src: ['**/*', '!**/*.js'],
             dest: 'build/'
-          }
+          },
+          {
+            expand: true,
+            cwd: 'src/assets/common/ionic/',
+            src: ['**/*'],
+            dest: 'build/assets/common/ionic/'
+          },
         ]
       }
     },

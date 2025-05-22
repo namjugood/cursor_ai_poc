@@ -2,7 +2,7 @@
 
 angular.module('myApp').controller('applycnsltController', __controller);
 
-function __controller($scope, $utilService, $stateParams, $http /*$provMangService, $clbcCunsService, $eaiCmnService*/) {
+function __controller($scope, $utilService, $stateParams, $http, $popupService /*$provMangService, $clbcCunsService, $eaiCmnService*/) {
     //## Data Area Start ##//
     $scope.data = {
         /*
@@ -42,11 +42,15 @@ function __controller($scope, $utilService, $stateParams, $http /*$provMangServi
         headerTitle: '상담신청',
         footerTitle: '대출 상담신청'
     };
+
+    $scope.title = '상담신청';
     //## View Area End ##//
 
     //## Init ##//
     function init() {
         console.log('init');
+        console.log($scope.view);
+
         $scope.data.custNm = getParameterByName("custNm");
         $scope.data.custPhone1 = getParameterByName("custPhone1");
         $scope.data.custPhone2 = getParameterByName("custPhone2");
@@ -57,7 +61,7 @@ function __controller($scope, $utilService, $stateParams, $http /*$provMangServi
         }
 
         $utilService.resize();
-        $utilService.scrollTop();
+        //$utilService.scrollTop();
     };
 
     function getParameterByName(name, url) {
@@ -121,9 +125,10 @@ function __controller($scope, $utilService, $stateParams, $http /*$provMangServi
         var data = $scope.data;
 
         data.provDtl = SMaProv01OutSubDto;
+        console.log('data.provDtl', data.provDtl.cmnCdNm);
 
         // 약관 상세 팝업 열기
-        $utilService.openModal('app/components/popup/micro/p_micro_prov.tpl.html', $scope, e, 'popup');
+        $popupService.openModal('app/components/popup/micro/p_micro_prov.tpl.html', $scope, e, 'popup');
 
         //$utilService.openModal('app/components/popup/micro/p_micro_prov.tpl.html', $scope, e, 'popup');
     }
@@ -135,7 +140,8 @@ function __controller($scope, $utilService, $stateParams, $http /*$provMangServi
 
     //## 약관 상세 팝업 닫기 버튼 ##//
     function evtBtnClosePopup() {
-        $utilService.closeModal('popup');
+        console.log('evtBtnClosePopup');
+        $popupService.closeModal('popup');
     }
 
     function evtCheckDevice() {

@@ -1,0 +1,5 @@
+<components-layout-header-directive title="view.headerTitle" cancel="event.evtBtnCancel($event)"></components-layout-header-directive>
+<ion-content scroll="true" class="has-footer has-header">
+    <div ui-view></div>
+</ion-content>
+<components-layout-footer-directive title="view.footerTitle" input-complete="view.isBtnDisabled" ng-click="event.evtBtnComplete()"></components-layout-footer-directive>

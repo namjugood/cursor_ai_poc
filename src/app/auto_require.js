@@ -1,4 +1,9 @@
-require('././common/filters/textToHtml_filter.js');
-require('././common/util_service.js');
-require('././views/applycnslt/applycnslt_controller.js');
-require('././views/home_main_controller.js');
+require('./common/filters/textToHtml_filter.js');
+require('./common/popup/popup_util_service.js');
+require('./common/util_service.js');
+require('./components/layout/footer/footer_controller.js');
+require('./components/layout/footer/footer_directive.js');
+require('./components/layout/header/header_controller.js');
+require('./components/layout/header/header_directive.js');
+require('./views/applycnslt/applycnslt_controller.js');
+require('./views/home_main_controller.js');

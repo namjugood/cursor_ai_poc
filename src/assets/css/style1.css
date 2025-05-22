@@ -2690,6 +2690,9 @@ template {
   border-radius: 4px !important;
   border-bottom: none; }
 
+.dv_transkey_div2:active {
+  background-color: #dad4d1 !important; }
+
 .dv_transkey_div_2 {
   border-color: transparent;
   border-bottom: none !important; }
@@ -3377,10 +3380,7 @@ button {
   padding: 1.875rem; }
 
 .box---space {
-  padding: 0 1.875rem; 
-  overflow-y: auto;   /* 세로 스크롤 자동 */
-  padding-right: 1rem; /* 스크롤바로 인한 내용 가림 방지(선택) */
-}
+  padding: 0 1.875rem; }
 
 .box---gray {
   background: none;

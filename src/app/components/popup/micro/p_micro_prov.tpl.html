@@ -1,5 +1,10 @@
-<div class="box---space">
-  <h3 class="typo--title--black mgn-b-14">{{data.provDtl.cmnCdNm}}</h3>
-  <p class="lh-16 fs-26 fw-100" ng-bind-html="data.provDtl.provCont | textToHtml"></p>
-  <input type="button" class="mgn-t-48 btn btn---fullscreen" value="확인" ng-click="$dismiss()">
-</div>
+<components-layout-header-directive title="data.provDtl.cmnCdNm" type="'02'"  is-modal="true"></components-layout-header-directive>
+
+<ion-content overflow-scroll="false" class="has-footer has-header">
+  <div class="box---space">
+    <h3 class="typo--title--black mgn-b-14">{{data.provDtl.cmnCdNm}}</h3>
+    <p class="lh-16 fs-26 fw-100" ng-bind-html="data.provDtl.provCont | textToHtml"></p>
+  </div>
+</ion-content>
+
+<components-layout-footer-directive title="'확인'" input-complete="true" ng-click="event.evtBtnClosePopup()"></components-layout-footer-directive>
