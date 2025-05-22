@@ -1,0 +1,116 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Cursor AI Rule: Development Standards Definition
+
+## 📌 Purpose
+
+Maintain consistent source code within the Online Channel System Integration Project.
+
+## 📌 Target Audience
+
+* Business Developers
+* Solution Managers
+
+---
+
+## Front-End Development Standards
+
+### 🔹 Core Technologies
+
+* **Angular**: HTML (templates), Controller, and Service structures
+* **Ionic**: Mobile web/app development framework using JavaScript, HTML, and CSS
+* **Node.js/npm**: Environment setup and package management
+* **Cordova**: Mobile development environment providing native functionality through JavaScript
+
+### 🔹 Naming Conventions
+
+* Folder names should use combinations of meta-standard English abbreviations (e.g., under `views` directory)
+* Refer to the detailed guidelines in the separate document "Development Standard Naming Conventions."
+
+### 🔹 Essential Components
+
+* **Template**: Use Angular HTML template syntax
+* **Controller**: Manage view data processing and business logic
+* **Router**: Manage URLs and link views within SPA (Single Page Application)
+* **Service**: Implement reusable functionality and HTTP communication logic
+
+---
+
+## Back-End Development Standards (Based on BX Framework)
+
+### 🔹 Core Components
+
+* **Service**: Handle external requests and manage transactions
+* **Operation**: Individual methods within Services annotated with `@BxmServiceOperation`
+* **Bean**: Classes for implementing business logic
+* **DBIO**: Database access (SQL and mapping definitions)
+* **DTO**: Data Transfer Object, for data management and transfer
+* **OMM**: Object Model Mapper, DTO management within BXM
+
+### 🔹 Naming Conventions (Summary)
+
+| Category | Example Naming Convention                                |
+| -------- | -------------------------------------------------------- |
+| Project  | `OkbBeBiz` (online), `OkbBeAdmBatch` (batch)             |
+| Package  | `apro.biz.abcloan.service`, `apro.adm.jabc.batch`        |
+| Class    | Service: `SContInfo`, Bean: `BContInfo`, DBIO: `DMaMenu` |
+| DTO      | `SContInfo01OutDto`                                      |
+
+---
+
+## Development Process
+
+### 🔹 Front-End Process
+
+1. Create HTML Templates
+2. Develop and register Controllers (JavaScript)
+3. Register Routers
+4. Create and register Services
+5. Implement HTTP communication and data binding
+6. Run virtual server and perform tests (`grunt`)
+7. Manage source versioning with SVN (commit)
+
+### 🔹 Back-End Process
+
+1. Create DTOs (automatically generated OMM files)
+2. Develop DBIOs (create SQL mappers)
+3. Implement Bean classes (`@BxmBean` annotation)
+4. Develop Service classes (`@BxmService` annotation)
+5. Create and execute service test cases
+6. Source versioning management with SVN (commit)
+
+---
+
+## Batch Job Development
+
+### 🔹 Core Components
+
+* **Job**: XML definition of batch tasks
+* **Step**: Definition of detailed execution steps within a task
+* **Bean**: Step logic implementation classes (ItemStream, ItemReader, ItemProcessor, ItemWriter interfaces)
+* **DBIO**: DB access for batch processing (SQL and batch options definition)
+
+### 🔹 Batch Job Examples
+
+* **DB to File**: Export database data to files
+* **File to DB**: Import data from files to database
+
+### 🔹 Key Processing Steps
+
+1. Define Job XML files (mandatory)
+2. Create DTOs and DBIO definitions (for file/DB processing)
+3. Develop batch Bean classes and define Steps (Chunk-Oriented method)
+4. Source versioning management with SVN (commit)
+5. Execute batch jobs and review logs
+
+---
+
+## Precautions and Recommendations
+
+* Manage detailed build configurations through `Build.config.js`
+* Always explicitly define global variables using `globalVariable`
+* Clearly implement exception handling and transaction processing
+* Adhere strictly to coding conventions and DBIO-related rules as defined in the "Development Standards Definition" document

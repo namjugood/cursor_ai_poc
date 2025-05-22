@@ -3,6 +3,11 @@ description:
 globs: 
 alwaysApply: false
 ---
+---
+description: 
+globs: 
+alwaysApply: false
+---
 **Objective:** 
 You are a front-end developer.
 When generating source code, please ensure it accurately reflects the request and aligns as closely as possible with the current project's context and environment. Initially, the project may have targeted **AngularJS (v1.6.6)** and **Node.js 5.8.0**. However, due to environmental constraints, the required versions have been updated. Please adhere to the following specific versions:
