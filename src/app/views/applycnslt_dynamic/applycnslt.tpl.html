@@ -1,0 +1,96 @@
+<div class="bar bar-header" style="z-index:10;">
+    <div class="prefix">
+        <button type="button" ng-click="event.evtBtnGoBack()">
+            <span class="icon---arrow-back">뒤로가기</span>
+        </button>
+    </div>
+    <span class="header--title">상담신청</span>
+    <div class="suffix"></div>
+</div>
+<ion-content overflow-scroll="true" class="has-footer fullscreen has-header">
+    <div class="scroll">
+        <div class="micro---notice align-c">
+            <p class="mgn-t-48 fs-40 tc---emperor txt---break-none"><strong class="tc---orange">“</strong><strong>친절한 상담원이 쉽고 빠르게<br>전화상담을 진행합니다.</strong><strong class="tc---orange">”</strong></p>
+        </div>
+
+        <div class="box---space mgn-t-74">
+            <div class="has-input-message">
+                <div class="textfield">
+                    <label>
+                        <span class="textfield--placeholder">성명</span>
+                        <input type="text" name="custNm" ng-model="data.custNm">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="box---space mgn-t-50">
+            <p class="typo--title mgn-b-0">휴대폰번호 확인</p>
+            <div class="has-input-message">
+                <div class="formula formula---place-none">
+                    <div class="textfield formula--article textfield---fill">
+                        <label>
+                            <input type="tel" id="custPhone1" pattern="[0-9]*" maxlength="3" name="custPhone1" ng-model="data.custPhone1" ng-keyup="event.evtInputKeydown(data.custPhone1, 3, 'custPhone2', $event)" class="align-c">
+                        </label>
+                    </div>
+                    <div class="formula---addon">
+                        <p class="formula--static--field">-</p>
+                    </div>
+                    <div class="textfield formula--article">
+                        <label>
+                            <input type="tel" id="custPhone2" pattern="[0-9]*" maxlength="4" name="custPhone2" ng-model="data.custPhone2" ng-keyup="event.evtInputKeydown(data.custPhone2, 4, 'custPhone3', $event)" class="align-c">
+                        </label>
+                    </div>
+                    <div class="formula---addon">
+                        <p class="formula--static--field">-</p>
+                    </div>
+                    <div class="textfield formula--article">
+                        <label>
+                            <input type="tel" id="custPhone3" pattern="[0-9]*" maxlength="4" name="custPhone3" ng-model="data.custPhone3" ng-keyup="event.evtInputKeydown(data.custPhone3, 4, 'end', $event)" class="align-c">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="line---gray mgn-t-40">
+        <div class="box---space box---gray">
+            <div class="list accordion">
+                <div class="accordion--item">
+                    <div class="accordion--head accordion---active pad-y-30">
+                        <label class="checkbox checkbox---all fullscreen">
+                            <input type="checkbox" name="allProv" ng-model="data.allProv" ng-click="event.evtBtnAllProv()">
+                            <span class="no-mgn"><strong>약관동의</strong></span>
+                        </label>
+                        <button type="button" class="suffix pad-l-30 accordion--toggle">
+                            <span class="accordion--toggle--deactivated">
+                                <img src="assets/images/icon/icon-policy-checkall-accodian-off.png" alt="">
+                            </span>
+                            <span class="accordion--toggle--activated">
+                                <img src="assets/images/icon/icon-policy-checkall-accodian-on.png" alt="">
+                            </span>
+                        </button>
+                    </div>
+                    <div class="list--content accordion--content">
+                        <ul class="mgn-b-50">
+                            <li>
+                                <label class="checkbox fullscreen pad-r-64">
+                                    <input type="checkbox" name="prov1" ng-model="data.prov1" ng-click="event.evtBtnProv()">
+                                    <span>개인정보 수집·이용동의</span>
+                                </label>
+                                <button type="button" class="suffix" ng-click="event.evtBtnProvDtl($event)" alt="[필수] 개인(신용)정보 수집+이용동의 상세보기">
+                                    <img src="assets/images/icon/icon-policy-left.png" alt="" style="height:1.75rem">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<div class="bar bar-footer">
+    <button type="button" class="btn btn---fullscreen"
+        ng-disabled="!data.custNm || !data.custPhone1 || !data.custPhone2 || !data.custPhone3 || !data.prov1"
+        ng-click="event.evtBtnCunsRqus()">
+        대출 상담신청
+    </button>
+</div>
