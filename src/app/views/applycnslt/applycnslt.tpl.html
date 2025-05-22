@@ -20,7 +20,7 @@
             <div class="formula formula---place-none"><!-- 2018-02-08 수정(가이드) -->
                 <div class="textfield formula--article textfield---fill">
                     <label>
-                        <input type="tel" id="custPhone1" pattern="[0-9]*" ng-keyup="event.evtInputKeydown(data.custPhone1, 3, 'custPhone2', $event)" limit-length="3" name="" value="" class="align-c" ng-model="data.custPhone1">
+                        <input type="tel" id="custPhone1" pattern="[0-9]*" ng-keyup="event.evtInputKeydown(data.custPhone1, 3, 'custPhone2', $event)" maxlength="3" name="" value="" class="align-c" ng-model="data.custPhone1" ng-pattern="/^[0-9]*$/">
                     </label>
                 </div>
                 <div class="formula---addon">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="textfield formula--article">
                     <label>
-                        <input type="tel" id="custPhone2" pattern="[0-9]*" ng-keyup="event.evtInputKeydown(data.custPhone2, 4, 'custPhone3', $event)" limit-length="4" name="" value="" class="align-c" ng-model="data.custPhone2">
+                        <input type="tel" id="custPhone2" pattern="[0-9]*" ng-keyup="event.evtInputKeydown(data.custPhone2, 4, 'custPhone3', $event)" maxlength="4" name="" value="" class="align-c" ng-model="data.custPhone2" ng-pattern="/^[0-9]*$/">
                     </label>
                 </div>
                 <div class="formula---addon">
@@ -36,9 +36,19 @@
                 </div>
                 <div class="textfield formula--article">
                     <label>
-                        <input type="tel" id="custPhone3" pattern="[0-9]*" limit-length="4" ng-keyup="event.evtInputKeydown(data.custPhone3, 4, 'end', $event)" name="" value="" class="align-c" ng-model="data.custPhone3">
+                        <input type="tel" id="custPhone3" pattern="[0-9]*" maxlength="4" ng-keyup="event.evtInputKeydown(data.custPhone3, 4, 'end', $event)" name="" value="" class="align-c" ng-model="data.custPhone3" ng-pattern="/^[0-9]*$/">
                     </label>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="box---space mgn-t-50">
+        <p class="typo--title mgn-b-0">원하는 상담 내용</p>
+        <div class="has-input-message">
+            <div class="textfield">
+                <label>
+                    <textarea class="form-control" ng-model="data.remark" rows="3" placeholder="상담 시 특별히 말씀하고 싶으신 내용을 입력해주세요"></textarea>
+                </label>
             </div>
         </div>
     </div>
@@ -68,8 +78,13 @@
                                 <input type="checkbox" name="list" value="" ng-model="data.prov1" ng-click="event.evtBtnProv()">
                                 <span>개인정보 수집·이용동의</span>
                             </label>
+<<<<<<< HEAD
                             <button type="button" class="suffix" ng-click="event.evtBtnProvDtl($event)"alt="[필수] 개인(신용)정보 수집+이용동의 상세보기">
                                 <img src="assets/images/icon/icon-policy-left.png" alt="" style="height:1.75rem">
+=======
+                            <button type="button" class="suffix" ng-click="event.evtBtnProvDtl($event)"alt="">
+                                <img src="assets/images/icon/icon-policy-left.png" alt="[필수] 개인(신용)정보 수집+이용동의 상세보기" style="height: 1.75rem;">
+>>>>>>> 73d1eb7911db6b638e24f7708763770f366a90ed
                             </button>
                         </li>
                     </ul>

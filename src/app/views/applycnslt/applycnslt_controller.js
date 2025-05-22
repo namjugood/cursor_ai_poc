@@ -13,6 +13,7 @@ function __controller($scope, $utilService, $stateParams, $http, $popupService /
         , custPhone2: null // 고객 휴대폰번호2
         , custPhone3: null // 고객 휴대폰번호3
         , content: null // 내용
+        , remark: null // 상담 내용
         , allProv: false // 약관동의 전체
         , prov1: false // 약관1
         , provDtl: {} // 약관 상세
@@ -161,6 +162,11 @@ function __controller($scope, $utilService, $stateParams, $http, $popupService /
         var data = $scope.data;
         var device = evtCheckDevice();
 
+        // 상담 내용 alert 표시
+        if (data.remark) {
+            alert('입력하신 상담 내용: ' + data.remark);
+        }
+
         /*
         if (device == "mobile") {
             ga('send', 'event', 'M_상담신청', 'CLICK', 'MOBILE');
@@ -249,18 +255,18 @@ function __controller($scope, $utilService, $stateParams, $http, $popupService /
             if (id == 'end') {
                 if (model.length == length) {
                     e.target.blur();
-                    $utilService.resize();
+                    // $utilService.resize();
                     return;
                 }
             } else if (id == "custPhone2") {
                 if (model == "010" || model == "011" || model == "012" || model == "013" || model == "014" || model == "015" || model == "016" || model == "017" || model == "018" || model == "019" && model.length == length) {
 
-                    $utilService.moveFocus(model, length, id, e);
+                    // $utilService.moveFocus(model, length, id, e);
                 } else if (model.length == length) {
                     data.custPhone1 = String(data.custPhone1).substring(0, 2);
                 }
             } else {
-                if (model.length == length) $utilService.moveFocus(model, length, id, e);
+                // if (model.length == length) $utilService.moveFocus(model, length, id, e);
             }
         } catch (e) {
             console.log(e);
